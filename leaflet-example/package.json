@@ -21,8 +21,7 @@
     "@angular/router": "~8.2.14",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1",
-    "leaflet": "1.5.1"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.29",
@@ -43,6 +42,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "leaflet": "1.5.1"
   }
 }
