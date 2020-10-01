@@ -23,4 +23,4 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/postgres-d
 # sudo docker build -t <dockerhub-user>/postgres-demo .
 
 # docker run
-# sudo docker run --name <linuxuser>-api -p 8xxx:8080 <dockerhub-user>/postgres-demo
+# sudo docker run --name postgres-demo -p 8090:8090 jos99/postgres-demo
