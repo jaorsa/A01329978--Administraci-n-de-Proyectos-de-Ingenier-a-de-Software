@@ -1,0 +1,10 @@
+{
+"name": "node-jacqueline",
+"private": true,
+"version": "1.0.0",
+"description": "Docker image - node",
+"author": "A01329978 <A01329978@itesm.mx>",
+"dependencies": {
+"express": "3.2.4"
+}
+}
