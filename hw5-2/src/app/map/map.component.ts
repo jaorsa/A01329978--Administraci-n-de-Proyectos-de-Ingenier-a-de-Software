@@ -30,10 +30,14 @@ export class MapComponent implements AfterViewInit {
   selectedEstado;
   selectedMunicipio;
   selectedUnidad;
+  selectedLocalidad;
 
   arrEstados = [];
   arrMunicipios = [];
   arrActividades = [];
+  arrLocalidades = [];
+
+  poblacion = 0; 
 
   constructor(private markerService: MarkerService,
     private dataApiService: DataApiService
@@ -47,7 +51,8 @@ export class MapComponent implements AfterViewInit {
     this.getUnidades();
   }
 
-  private initMap(): void {
+  
+   initMap(): void {
     this.map = L.map('map', {
       center: [ 39.8282, -98.5795 ],
       zoom: 3
@@ -61,42 +66,59 @@ export class MapComponent implements AfterViewInit {
     tiles.addTo(this.map);
   }
 
- private getEstados()
+  getEstados()
  {
   this.dataApiService.getEstados().subscribe((estados: any) => {
-    this.arrEstados = estados;
+    this.arrEstados = estados.content;
    });
- 
  }
 
- private getUnidades()
+
+  getUnidades()
  {
   this.dataApiService.getUnidades().subscribe((unidades: any) => {
-    this.arrActividades = unidades;
+    this.arrActividades = unidades.content;
    });
  
  }
  
- private changeEstado()
+ changeEstado()
  {
    this.dataApiService.getMunicipios(this.selectedEstado)
    .subscribe((municipios: any) => {
     this.arrMunicipios = municipios;
-
    });
- 
+ }
+
+ changeMunicipio()
+ {
+   this.dataApiService.getlocalidades(this.selectedMunicipio, this.selectedEstado)
+   .subscribe((localidades: any) => {
+     console.log(localidades);
+    this.arrLocalidades = localidades;
+   });
  }
  
 
- private buscarDenues()
+ buscarDenues()
  {
-
   this.markerService.makeDenuesMarkers(this.map,
     this.selectedEstado,
     this.selectedMunicipio,
     this.selectedUnidad
     );
+ }
 
+ changeLocalidad()
+ {
+   this.dataApiService.getPoblacion(this.selectedMunicipio, this.selectedEstado, this.selectedMunicipio)
+   .subscribe((poblacion: any) => {
+     console.log(poblacion);
+     
+    this.poblacion = poblacion[0].pobtot;
+
+   });
+ 
  }
 
  
