@@ -14,7 +14,7 @@ EXPOSE 8120
 ARG JAR_FILE=target/SpringBootJwtAuthentication-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} SpringBootJwtAuthentication.jar
+ADD ${JAR_FILE} SpringBootJwtAuthentication-0.0.1.jar
 
 # Run the jar file 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/SpringBootJwtAuthentication.jar"]
