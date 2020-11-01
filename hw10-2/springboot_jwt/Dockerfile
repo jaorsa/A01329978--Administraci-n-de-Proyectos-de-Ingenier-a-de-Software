@@ -11,7 +11,7 @@ VOLUME /tmp
 EXPOSE 8120
 
 # The application's jar file
-ARG JAR_FILE=target/SpringBootJwtAuthentication-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/SpringBootJwtAuthentication-0.0.1.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} SpringBootJwtAuthentication-0.0.1.jar
