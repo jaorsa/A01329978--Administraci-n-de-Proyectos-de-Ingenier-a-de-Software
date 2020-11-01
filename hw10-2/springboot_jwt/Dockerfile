@@ -17,10 +17,10 @@ ARG JAR_FILE=target/SpringBootJwtAuthentication-0.0.1.jar
 ADD ${JAR_FILE} SpringBootJwtAuthentication-0.0.1.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/SpringBootJwtAuthentication.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/SpringBootJwtAuthentication-0.0.1.jar"]
 
 # docker build
 # sudo docker build -t jos99/springboot-jwt .
 
 # docker run
-# sudo docker run --name jacqueline-api -p 8120:8080 jos99/springboot-jwt
+# sudo docker run --name jacqueline-springboot-jwt -p 8120:8080 jos99/springboot-jwt
