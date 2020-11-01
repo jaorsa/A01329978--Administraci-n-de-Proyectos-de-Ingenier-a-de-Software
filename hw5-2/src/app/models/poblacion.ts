@@ -1,7 +1,7 @@
 export class Poblacion {
     idestado: string;
-    idlocalidad: string;
     idmunicipio: string;
+    idlocalidad: string;
     pobfem: string;
     pobmas: string;
     pobtot: string;

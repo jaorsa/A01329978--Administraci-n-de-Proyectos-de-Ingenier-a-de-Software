@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface PoblacionRepository extends JpaRepository<Poblacion, Long> {
     
     @Query(value = "select NEW com.grokonez.jwtauthentication.model.Poblacion(c.idestado,c.idmunicipio,c.idlocalidad, c.pobfem,c.pobmas,c.pobtot) from Poblacion c where c.idlocalidad=?1 AND c.idestado=?2 AND c.idmunicipio=?3 order by c.idlocalidad")
-    List<Poblacion> findPoblacion(Long idlocalidad, Long idestado, Long idmunicipio);
+    List<Poblacion> findPoblacionByLocalidad(Long idlocalidad, Long idestado, Long idmunicipio);
 
 
 }

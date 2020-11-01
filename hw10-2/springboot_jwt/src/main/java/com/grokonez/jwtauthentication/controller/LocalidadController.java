@@ -19,7 +19,7 @@ public class LocalidadController {
     @Autowired
     private LocalidadRepository localidadRepository;
 
-    @GetMapping("/localidad")
+    @GetMapping("/localidades")
     public List<Localidad> getLocalidades(@RequestParam(value="idmunicipio") Long idmunicipio, @RequestParam(value="idestado") Long idestado){
         return localidadRepository.findLocalidadesByMunicipios(idmunicipio, idestado);
     }

@@ -19,8 +19,8 @@ public class PoblacionController {
     @Autowired
     private PoblacionRepository poblacionRepository;
 
-    @GetMapping("/poblacion")
+    @GetMapping("/poblaciones")
     public List<Poblacion> getPoblacion(@RequestParam(value="idlocalidad") Long idlocalidad, @RequestParam(value="idestado") Long idestado, @RequestParam(value="idmunicipio") Long idmunicipio){
-        return poblacionRepository.findPoblacion(idlocalidad, idestado, idmunicipio);
+        return poblacionRepository.findPoblacionByLocalidad(idlocalidad, idestado, idmunicipio);
     }
 }

@@ -31,13 +31,17 @@ export class MapComponent implements AfterViewInit {
   selectedMunicipio;
   selectedUnidad;
   selectedLocalidad;
+  selectedPoblacion;
 
   arrEstados = [];
   arrMunicipios = [];
   arrActividades = [];
   arrLocalidades = [];
+  
 
-  poblacion = 0; 
+  totalpoblacion = 0;
+  poblacionfemenina = 0;
+  poblacionmasculina = 0; 
 
   constructor(private markerService: MarkerService,
     private dataApiService: DataApiService
@@ -59,67 +63,63 @@ export class MapComponent implements AfterViewInit {
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-     maxZoom: 19,
-     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
     tiles.addTo(this.map);
   }
 
   getEstados()
- {
-  this.dataApiService.getEstados().subscribe((estados: any) => {
-    this.arrEstados = estados.content;
-   });
- }
+  {
+    this.dataApiService.getEstados().subscribe((estados: any) => {
+      this.arrEstados = estados.content;
+    });
+  }
 
 
   getUnidades()
- {
-  this.dataApiService.getUnidades().subscribe((unidades: any) => {
-    this.arrActividades = unidades.content;
-   });
- 
- }
- 
- changeEstado()
- {
-   this.dataApiService.getMunicipios(this.selectedEstado)
-   .subscribe((municipios: any) => {
+  {
+    this.dataApiService.getUnidades().subscribe((unidades: any) => {
+      this.arrActividades = unidades.content;
+    });
+  }  
+
+  changeEstado()
+  {
+    this.dataApiService.getMunicipios(this.selectedEstado)
+    .subscribe((municipios: any) => {
     this.arrMunicipios = municipios;
-   });
- }
+    });
+  }
 
- changeMunicipio()
- {
-   this.dataApiService.getlocalidades(this.selectedMunicipio, this.selectedEstado)
-   .subscribe((localidades: any) => {
-     console.log(localidades);
+  changeMunicipio()
+  {
+    this.dataApiService.getLocalidades(this.selectedMunicipio, this.selectedEstado)
+    .subscribe((localidades: any) => {
+    console.log(localidades);
     this.arrLocalidades = localidades;
-   });
- }
- 
+    });
+  }
 
- buscarDenues()
- {
-  this.markerService.makeDenuesMarkers(this.map,
-    this.selectedEstado,
-    this.selectedMunicipio,
-    this.selectedUnidad
+  changeLocalidad()
+  {
+    this.dataApiService.getPoblacion(this.selectedLocalidad, this.selectedEstado, this.selectedMunicipio)
+    .subscribe((poblaciones: any) => {
+      console.log(poblaciones);
+    this.totalpoblacion = poblaciones[0].pobtot;
+    this.poblacionfemenina = poblaciones[0].pobfem;
+    this.poblacionmasculina = poblaciones[0].pobmas;
+    });
+  }
+
+  buscarDenues()
+  {
+    this.markerService.makeDenuesMarkers(this.map,
+      this.selectedEstado,
+      this.selectedMunicipio,
+      this.selectedUnidad
     );
- }
+  }
 
- changeLocalidad()
- {
-   this.dataApiService.getPoblacion(this.selectedMunicipio, this.selectedEstado, this.selectedMunicipio)
-   .subscribe((poblacion: any) => {
-     console.log(poblacion);
-     
-    this.poblacion = poblacion[0].pobtot;
-
-   });
- 
- }
-
- 
 }

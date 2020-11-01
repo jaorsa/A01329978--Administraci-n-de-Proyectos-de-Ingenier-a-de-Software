@@ -1,4 +1,4 @@
-<div> 
+<div class="block-container"> 
         
   <label class="container"> 
        <b> Estado </b>
@@ -14,16 +14,16 @@
         <option *ngFor="let mun of arrMunicipios; let i = index" [value]="mun.idmunicipio">
           {{mun.municipio}}
         </option>
-      </select>
+      </select> 
+
+      <p></p>
 
       <b> Localidad </b>
        <select  name="selectedLocalidad" id="selectedLocalidad" [(ngModel)]="selectedLocalidad" (change)="changeLocalidad();">
-        <option *ngFor="let loc of arrLocalidades; let i = index" [value]="loc.idlocalidad">
-          {{loc.localidad}}
+        <option *ngFor="let loca of arrLocalidades; let i = index" [value]="loca.idlocalidad">
+          {{loca.localidad}}
         </option>
       </select>
-
-      <label for="poblacion"><b>Población Total</b> {{poblacion}}</label>
 
        <b> Unidad Economica </b>
        <select  name="selectedUnidad" id="selectedUnidad" [(ngModel)]="selectedUnidad">
@@ -38,7 +38,14 @@
 </div>
 
 <div class="map-container">
-  <div class="map-frame">
+
+  <label for="totalpoblacion" id="total"><b>Población Total</b> {{totalpoblacion}}</label>
+  <p></p>
+  <label for="poblacionfemenina" id="fem"><b> Población Total de Mujeres</b> {{poblacionfemenina}}</label>
+  <b></b>
+  <label for="poblacionmasculina" id="mas"><b> Población Total de Hombres</b> {{poblacionmasculina}}</label>
+  
+  <div class="map-frame">   
     <div id="map"></div>
   </div>
 </div>

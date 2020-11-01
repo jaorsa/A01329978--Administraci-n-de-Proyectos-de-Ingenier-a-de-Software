@@ -38,8 +38,6 @@ public class Localidad{
     @Size(min=3, max = 100)
     private String localidad;
 
-
-   
     public Localidad() {}
 
     public Localidad(Long idestado, Long idmunicipio, Long idlocalidad, String localidad) {

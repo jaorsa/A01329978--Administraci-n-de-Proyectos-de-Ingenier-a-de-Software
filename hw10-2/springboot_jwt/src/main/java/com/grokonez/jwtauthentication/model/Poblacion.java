@@ -31,8 +31,8 @@ public class Poblacion{
     private Long id;
 
     private Long idestado;
-    private Long idlocalidad;
     private Long idmunicipio;
+    private Long idlocalidad;
     private Long pobfem;
     private Long pobmas;
     private Long pobtot;
@@ -42,10 +42,10 @@ public class Poblacion{
    
     public Poblacion() {}
 
-    public Poblacion(Long idestado, Long idmunicipio, Long idlocalidad,Long pobfem, Long pobmas, Long pobtot) {
+    public Poblacion(Long idestado, Long idmunicipio, Long idlocalidad, Long pobfem, Long pobmas, Long pobtot) {
         this.idestado = idestado;
-        this.idlocalidad = idlocalidad;
         this.idmunicipio = idmunicipio;
+        this.idlocalidad = idlocalidad;
         this.pobfem = pobfem;
         this.pobmas = pobmas;
         this.pobtot = pobtot;   
@@ -75,11 +75,11 @@ public class Poblacion{
         this.idmunicipio = idmunicipio;
     }
 
-    public Long getLocalidad() {
+    public Long getIdlocalidad() {
         return idlocalidad;
     }
 
-    public void setLocalidad(Long idlocalidad) {
+    public void setIdlocalidad(Long idlocalidad) {
         this.idlocalidad = idlocalidad;
     }   
 

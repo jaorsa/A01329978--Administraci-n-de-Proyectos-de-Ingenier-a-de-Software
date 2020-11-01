@@ -18,7 +18,7 @@ export class DataApiService {
 
  
 
-  apiURL = 'http://104.198.244.0:8090/api/auth/';
+  apiURL = 'http://localhost:8080/api/auth/';
   //apiURL = 'https://valid-decoder-258800.appspot.com/';
   
   
@@ -34,7 +34,7 @@ export class DataApiService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin':'*'
+      'Access-Control-Allow-Origin': '*'
 
     })
   }  
@@ -65,9 +65,9 @@ export class DataApiService {
     )
   }   
 
-  getlocalidades(idmunicipio, idestado): Observable<Localidades> {
+  getLocalidades(idmunicipio, idestado): Observable<Localidades> {
     console.log("localidades: " + this.apiURL);
-    return this.http.get<Localidades>(this.apiURL + 'localidad?idmunicipio=' + idmunicipio + '&idestado=' + idestado, this.httpOptions)
+    return this.http.get<Localidades>(this.apiURL + 'localidades?idmunicipio=' + idmunicipio + '&idestado=' + idestado, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -97,7 +97,8 @@ export class DataApiService {
   
   getPoblacion(idlocalidad, idestado, idmunicipio): Observable<Poblacion> {
       console.log("poblacion: " + this.apiURL);
-      return this.http.get<Poblacion>(this.apiURL + 'poblacion?idlocalidad=' + idlocalidad + '&idestado='+idestado+'&idmunicipio='+idmunicipio, this.httpOptions)
+      return this.http.get<Poblacion>(this.apiURL + 'poblaciones?idlocalidad=' + idlocalidad
+         + '&idestado='+idestado+'&idmunicipio='+idmunicipio, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
