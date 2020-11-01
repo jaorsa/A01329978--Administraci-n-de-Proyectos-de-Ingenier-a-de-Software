@@ -3,6 +3,7 @@ package com.grokonez.jwtauthentication.controller;
 import com.grokonez.jwtauthentication.model.Estado;
 import com.grokonez.jwtauthentication.repository.EstadoRepository;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

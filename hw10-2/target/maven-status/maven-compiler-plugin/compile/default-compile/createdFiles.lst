@@ -2,9 +2,9 @@ com/grokonez/jwtauthentication/controller/LocalidadController.class
 com/grokonez/jwtauthentication/repository/RoleRepository.class
 com/grokonez/jwtauthentication/model/Role.class
 com/grokonez/jwtauthentication/model/Estado.class
+com/grokonez/jwtauthentication/controller/CategoriaController.class
 com/grokonez/jwtauthentication/controller/MunicipioController.class
 com/grokonez/jwtauthentication/controller/EmpresaController.class
-com/grokonez/jwtauthentication/controller/CategoriaController.class
 com/grokonez/jwtauthentication/model/Municipio.class
 com/grokonez/jwtauthentication/model/Poblacion.class
 com/grokonez/jwtauthentication/security/services/UserDetailsServiceImpl.class
