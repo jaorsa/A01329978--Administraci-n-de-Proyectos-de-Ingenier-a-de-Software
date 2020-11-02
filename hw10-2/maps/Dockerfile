@@ -9,6 +9,9 @@ RUN npm install
 
 RUN npm run build --prod
 
+FROM nginx:1.13.8-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+
 COPY --from=node app/bigdata-maps /usr/share/nginx/html
 
 # docker build
