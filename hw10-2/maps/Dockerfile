@@ -1,18 +1,6 @@
-# Start with a base image containing Java runtime
-FROM node:12.7-alpine as node
-
-WORKDIR /app
-
-COPY . .
-
-RUN npm install 
-
-RUN npm run build --prod
-
-FROM nginx:1.13.8-alpine
+FROM nginx:1.17.1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
-
-COPY --from=node /app/dist/bigdata-maps /usr/share/nginx/html
+COPY /dist/bigdata-maps /usr/share/nginx/html
 
 # docker build
 # sudo docker build -t jos99/bigdata-maps .
