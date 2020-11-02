@@ -4,7 +4,7 @@ FROM node:12.7-alpine as node
 # Add Maintainer Info
 LABEL maintainer="adsoft@live.com.mx"
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY . .
 
@@ -12,7 +12,7 @@ RUN npm install
 
 RUN npm run build --prod
 
-COPY --from=node /app/dist/bigdata-maps /usr/share/nginx/html
+COPY --from=node /usr/src/app/dist/git bigdata-maps /usr/share/nginx/html
 
 # docker build
 # sudo docker build -t jos99/bigdata-maps .
