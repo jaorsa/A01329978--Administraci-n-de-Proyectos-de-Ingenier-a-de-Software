@@ -12,7 +12,7 @@ RUN npm run build --prod
 FROM nginx:1.13.8-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=node app/bigdata-maps /usr/share/nginx/html
+COPY --from=node /app/dist/bigdata-maps /usr/share/nginx/html
 
 # docker build
 # sudo docker build -t jos99/bigdata-maps .
