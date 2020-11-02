@@ -1,0 +1,51 @@
+<div class="block-container"> 
+        
+  <label class="container"> 
+       <b> Estado </b>
+         
+       <select  name="selectedEstado" id="selectedEstado" [(ngModel)]="selectedEstado" (change)="changeEstado();">
+        <option *ngFor="let edo of arrEstados; let i = index" [value]="edo.idestado">
+          {{edo.estado}}
+        </option>
+      </select>
+     
+       <b> Municipio </b>
+       <select  name="selectedMunicipio" id="selectedMunicipio" [(ngModel)]="selectedMunicipio" (change)="changeMunicipio();">
+        <option *ngFor="let mun of arrMunicipios; let i = index" [value]="mun.idmunicipio">
+          {{mun.municipio}}
+        </option>
+      </select> 
+
+      <p></p>
+
+      <b> Localidad </b>
+       <select  name="selectedLocalidad" id="selectedLocalidad" [(ngModel)]="selectedLocalidad" (change)="changeLocalidad();">
+        <option *ngFor="let loca of arrLocalidades; let i = index" [value]="loca.idlocalidad">
+          {{loca.localidad}}
+        </option>
+      </select>
+
+       <b> Unidad Economica </b>
+       <select  name="selectedUnidad" id="selectedUnidad" [(ngModel)]="selectedUnidad">
+        <option *ngFor="let uni of arrActividades; let i = index" [value]="uni.tipo">
+          {{uni.descripcion}}
+        </option>
+      </select> 
+      {{selectedUnidad}}
+      <button (click)="buscarDenues()" type=”button”>Buscar</button>
+
+</label>
+</div>
+
+<div class="map-container">
+
+  <label for="totalpoblacion" id="total"><b>Población Total</b> {{totalpoblacion}}</label>
+  <p></p>
+  <label for="poblacionfemenina" id="fem"><b> Población Total de Mujeres</b> {{poblacionfemenina}}</label>
+  <b></b>
+  <label for="poblacionmasculina" id="mas"><b> Población Total de Hombres</b> {{poblacionmasculina}}</label>
+  
+  <div class="map-frame">   
+    <div id="map"></div>
+  </div>
+</div>
